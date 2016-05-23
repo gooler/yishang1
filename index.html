@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	 <script src="js/angular.js"></script>
+</head>
+<style>
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+	.box{
+		max-width: 768px;
+		height: 736px;
+		overflow: hidden;
+		background: red;
+		margin: 0px auto;
+		background: url(images/bg.jpg)  no-repeat;
+		background-size: contain;
+		position: relative;
+	}
+	.box div{
+		width: 100%;
+		max-height: 100px;
+		position: absolute;
+		top: 10%;
+		left: 0px;
+		right: 0px;
+		margin: auto;
+	}		
+	.box input{
+		max-height: 40px;
+		max-width: 200px;
+		display: block;
+		margin: auto;
+		border-radius: 10px;
+	}
+	.box button{
+		max-height: 40px;
+		display: block;
+		margin: 20px auto;
+		color: #000;
+		font-family: '微软雅黑';
+		/*border-radius: 10px;*/
+	}
+	.container{
+
+		position: relative;
+		display: none;
+		max-width: 768px;
+		height: 736px;
+		background: url(images/jh.jpg) no-repeat;
+		background-size: contain;
+	}
+	#con1{
+		position: absolute;
+		top: 75px;
+		left:123px;
+		color: #000;
+		font-size:10px;
+		font-family: "微软雅黑";
+	}
+	#con2{
+		position: absolute;
+		top: 111px;
+		left: 128px;
+		color: #000;
+		font-size: 10px;
+		font-family: "微软雅黑";
+	}
+	#times{
+		position: absolute;
+		bottom:519px;
+		left:27px;
+		font-size: 10px;
+		font-weight: bold;
+	}
+	#erweima{
+		position: absolute;
+		left:0;
+		right:0;
+		margin:-80px  auto;
+		width:170px;
+		display: none;
+
+	}
+	
+</style>
+<body >
+	<div class="box" id="box1">
+	<div>
+		<div><img src="images/erweima.jpg" alt="" id="erweima"></div>
+		<input type="text" placeholder="请输入您的姓名" id='nan'>
+		<input type="text" placeholder="请输入对方姓名" id='nv'>
+		<button id='but'>提交</button>
+	</div>
+	</div>
+	<div class="container" id='cons' ng-controller="contr">
+		<div id="con1">111</div>
+		<div id="con2">111</div>
+		<div id="times">{{time | date:"yyyy'年'MM'月'dd'日' hh:mm:ss"}}</div>
+	</div>
+</body>
+<script>
+but.onclick=function(){
+	con1.innerHTML=nan.value;
+	con2.innerHTML=nv.value;
+	box1.style.display='none';
+	cons.style.display='block'
+}
+
+nan.onclick=function(){
+	erweima.style.display="block"
+}
+nv.onclick=function(){
+	erweima.style.display="block"
+}
+
+	angular.module('myapp',[]).controller('contr',function($scope){
+		$scope.time=new Date()
+	})
+</script>
+</html>
